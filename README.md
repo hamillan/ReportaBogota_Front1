@@ -1,6 +1,6 @@
-# REPORTA BOGOTÁ - The Ionic Super Starter 🎮
+# REPORTA BOGOTÁ - The Ionic Superapp
 
-<img src="https://ibm.ent.box.com/s/sx1zq8o8rnhlem8kuenh3qvdm20mof4r" width="400" />
+<img src="https://ibm.box.com/shared/static/sx1zq8o8rnhlem8kuenh3qvdm20mof4r.jpg" width="400" />
 
 The Ionic Super Starter is a batteries-included starter project for Ionic apps
 complete with pre-built pages, providers, and best practices for Ionic
