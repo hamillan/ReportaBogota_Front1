@@ -1,0 +1,7 @@
+{
+  "name": "hm1",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

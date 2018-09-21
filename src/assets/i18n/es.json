@@ -1,0 +1,59 @@
+{
+  "NAME": "Nombre",
+  "PASSWORD": "Contraseña",
+  "EMAIL": "Email",
+  "LOGIN": "Iniciar sesión",
+  "SIGNUP": "Registrarse",
+  "PHONE": "Nro Celular",
+
+  "TAB1_TITLE": "Inicio",
+  "TAB2_TITLE": "Cámara",
+  "TAB3_TITLE": "Mi Reporte",
+  "TAB4_TITLE": "Chat",
+
+  "MAP_TITLE": "Mapa",
+
+   "TUTORIAL_SKIP_BUTTON": "Saltar",
+  "TUTORIAL_CONTINUE_BUTTON": "Continuar",
+
+  "TUTORIAL_SLIDE1_TITLE": "¡ Bienvenido !",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "La aplicación <b>Reporta Bogotá</b> es una plataforma tecnológica que permitirá que cada Bogotano se convierta en un reportero digital.",
+
+  "TUTORIAL_SLIDE2_TITLE": "¿ Cómo funciona ?",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "Desde tu móvil podrás reportar a <b>las autoridades</b> de la ciudad sobre incidentes de tu barrio para hacer de Bogotá un mejor lugar para vivir.",
+
+  "TUTORIAL_SLIDE3_TITLE": "¡ Comencemos !",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "Invita a tus vecinos y compañeros de trabajo a reportar los incidentes de tu localidad y gana <b>puntos que luego podrás cambiar por premios.</b>",
+
+  "TUTORIAL_SLIDE4_TITLE": "¿ Listo para empezar ?",
+
+  "WELCOME_INTRO": "Reporta Bogotá",
+
+  "BACK_BUTTON_TEXT": "Volver",
+
+  "SETTINGS_TITLE": "Ajustes",
+  "SETTINGS_OPTION1": "Opción 1",
+  "SETTINGS_OPTION2": "Opción 2",
+  "SETTINGS_OPTION3": "Opción 3",
+  "SETTINGS_OPTION4": "Opción 4",
+
+  "SETTINGS_PAGE_PROFILE": "Editar Perfil",
+
+  "WELCOME_TITLE": "Bienvenido/a",
+
+  "LOGIN_TITLE": "Iniciar sesión",
+  "LOGIN_ERROR": "No se ha podido iniciar sesión. Por favor revisa la información de la cuenta e inténtalo de nuevo.",
+  "LOGIN_BUTTON": "Iniciar sesión",
+  "SIGNUP_TITLE": "Registro",
+  "SIGNUP_ERROR": "No se ha podido crear la cuenta. Por favor revisa la información de la cuenta e inténtalo de nuevo.",
+  "SIGNUP_BUTTON": "Registrarse",
+
+  "LIST_MASTER_TITLE": "Items",
+
+  "ITEM_CREATE_TITLE": "Nuevo Item",
+  "ITEM_CREATE_CHOOSE_IMAGE": "Añadir Imagen",
+
+  "CARDS_TITLE": "Social",
+
+  "SEARCH_TITLE": "Buscar"
+}

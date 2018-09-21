@@ -1,0 +1,31 @@
+page-landing {
+.toolbar-background {
+    background: #1DAFEC;
+    border-color: transparent;
+  }
+
+ .ban_logo{
+    //margin-left: -0.5rem;
+   // background: url('../assets/img/seguridad.png') repeat transparent;
+    background-size: 100%;
+    width: 90px;
+    height: 90px;
+
+ }
+
+.master {
+	font-size: 11px;
+    background: white;
+  }
+
+
+  p {
+    padding: 0 8px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 0.05;
+    color: #1DAFEC;
+    }   
+}
