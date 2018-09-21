@@ -1,6 +1,6 @@
-# The Ionic Super Starter 🎮
+# REPORTA BOGOTÁ - The Ionic Super Starter 🎮
 
-<img src="https://user-images.githubusercontent.com/236501/32385619-bddac0ac-c08c-11e7-9ee4-9c892197191f.png" width="400" />
+<img src="https://ibm.box.com/s/sx1zq8o8rnhlem8kuenh3qvdm20mof4r" width="400" />
 
 The Ionic Super Starter is a batteries-included starter project for Ionic apps
 complete with pre-built pages, providers, and best practices for Ionic
