@@ -7,6 +7,6 @@ export const MainPage = 'TabsPage';
 
 // The initial root pages for our tabs (remove if not using tabs)
 export const Tab1Root = 'LandingPage';
-export const Tab2Root = 'SearchPage';
+export const Tab2Root = 'CamaraPage';
 export const Tab3Root = 'SettingsPage';
 export const Tab4Root = 'LandingPage';
