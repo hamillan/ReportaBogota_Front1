@@ -24,44 +24,19 @@
     </ion-fab>
     <form (ngSubmit)="logForm()">
       <ion-item>
-        <ion-label>
-          Categoría
-        </ion-label>
-        <ion-select name="">
-          <ion-option>
-            Movilidad
-          </ion-option>
-          <ion-option>
-            Seguridad
-          </ion-option>
-          <ion-option>
-            Ambiental
-          </ion-option>
-          <ion-option>
-            Convivenvcia
-          </ion-option>
+        <ion-label>Categoría</ion-label>
+        <ion-select name="categoriaSeleccionada" (ionChange)="onSelectChange($event)">
+          <ion-option *ngFor="let cat of categorias" >{{ cat.name }}</ion-option>
         </ion-select>
         </ion-item>
       <ion-item>
-        <ion-label>
-          Tipo
-        </ion-label>
-        <ion-select name="">
-          <ion-option>
-            Malla vial
-          </ion-option>
-          <ion-option>
-            Señales de transito
-          </ion-option>
-          <ion-option>
-            Semaforización
-          </ion-option>
+        <ion-label>Tipo</ion-label>
+        <ion-select id="tipo" name="tipo">
+          <ion-option *ngFor="let tipoR of tiposReporte">{{ tipoR.name }}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label>
-          Nota
-        </ion-label>
+        <ion-label>Nota</ion-label>
         <ion-textarea placeholder="">
           En este cruce se han presentado accidentes debido a este hueco.
         </ion-textarea>

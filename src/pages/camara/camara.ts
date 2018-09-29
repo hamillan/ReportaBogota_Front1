@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
@@ -17,10 +17,53 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class CamaraPage {
   public base64Image: string;
 
+  categorias: Object[];
+
+  tiposReporte: Object[];
+
+  
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera) {
   }
 
   ionViewDidLoad() {
+
+    this.categorias = [
+      {
+        "name":"Seguridad",
+          "tipos":[
+            {"name":"Robo de bicicleta"},
+            {"name":"Robo de celular"},
+            {"name":"Robo de carro"}
+          ]
+      },
+      {"name":"Movilidad",
+          "tipos":[
+            {"name":"Trancón"},
+            {"name":"SITP demorado"},
+            {"name":"Semáforo dañado"},
+          ]
+      }
+    ];
+    //this.categoriaSeleccionada.selectedValue = 0;
+    /*
+    this.tipos = new String[this.categorias.length];
+    <ion-option>Malla vial</ion-option>
+          <ion-option>Señales de tránsito</ion-option>
+          <ion-option>Semaforización</ion-option>
+    this.tipos[0] = [
+      "Robo de bicicleta",
+      "Robo de celular",
+      "Robo de carro",
+    ];
+  
+    this.tipos["Movilidad"] = [
+      "Trancón",
+      "SITP demorado",
+      "Semáforo dañado",
+    ];
+    */
+
     console.log('ionViewDidLoad CamaraPage');
   }
 
@@ -41,4 +84,15 @@ export class CamaraPage {
     });
   }
 
+  onSelectChange(selectedValue: any) {
+    
+    this.tiposReporte = [];
+    this.categorias.forEach(categoria => {
+      if(categoria.name == selectedValue)
+      { 
+          this.tiposReporte = categoria.tipos;
+      }
+    });
+    console.log(this.categoriaSeleccionada);
+  }
 }
