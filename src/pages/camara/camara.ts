@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 
@@ -21,13 +21,12 @@ export class CamaraPage {
 
   tiposReporte: Object[];
 
-  
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera) {
   }
 
   ionViewDidLoad() {
-
+    
     this.categorias = [
       {
         "name":"Seguridad",
@@ -45,7 +44,8 @@ export class CamaraPage {
           ]
       }
     ];
-    //this.categoriaSeleccionada.selectedValue = 0;
+    this.categoriaSeleccionada
+
     /*
     this.tipos = new String[this.categorias.length];
     <ion-option>Malla vial</ion-option>
@@ -85,7 +85,6 @@ export class CamaraPage {
   }
 
   onSelectChange(selectedValue: any) {
-    
     this.tiposReporte = [];
     this.categorias.forEach(categoria => {
       if(categoria.name == selectedValue)
@@ -93,6 +92,5 @@ export class CamaraPage {
           this.tiposReporte = categoria.tipos;
       }
     });
-    console.log(this.categoriaSeleccionada);
   }
 }
