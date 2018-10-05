@@ -13,6 +13,13 @@ import { Items } from '../mocks/providers/items';
 import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
 
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+//import { Transfer } from '@ionic-native';
+
+import { ReportCategoryProvider } from '../providers/report-category/report-category';
+import { ReportTypeProvider } from '../providers/report-type/report-type';
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -60,11 +67,16 @@ export function provideSettings(storage: Storage) {
     Items,
     User,
     Camera,
+    FileTransfer,
+    File,
+//    Transfer,
     SplashScreen,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    ReportCategoryProvider,
+    ReportTypeProvider
   ]
 })
 export class AppModule { }

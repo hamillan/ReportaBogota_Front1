@@ -1,12 +1,13 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Api is a generic REST Api handler. Set your API url first.
  */
 @Injectable()
 export class Api {
-  url: string = 'https://example.com/api/v1';
+  url: string = 'https://floating-chamber-80486.herokuapp.com';
 
   constructor(public http: HttpClient) {
   }
@@ -26,7 +27,7 @@ export class Api {
       }
     }
 
-    return this.http.get(this.url + '/' + endpoint, reqOpts);
+    return this.http.get(this.url + '/' + endpoint + '.json', reqOpts);
   }
 
   post(endpoint: string, body: any, reqOpts?: any) {

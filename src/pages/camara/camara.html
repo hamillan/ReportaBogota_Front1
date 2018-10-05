@@ -25,8 +25,8 @@
     <form (ngSubmit)="logForm()">
       <ion-item>
         <ion-label>Categoría</ion-label>
-        <ion-select name="categoriaSeleccionada" (ionChange)="onSelectChange($event)">
-          <ion-option *ngFor="let cat of categorias" >{{ cat.name }}</ion-option>
+        <ion-select [(ngModel)]="categoriesProvider.id" name="categoriaSeleccionada" (ionChange)="onSelectChange($event)">
+          <ion-option *ngFor="let cat of categories" [value]="cat.id" [selected]="cat.id == category_id">{{ cat.name }}</ion-option>
         </ion-select>
         </ion-item>
       <ion-item>

@@ -22,4 +22,13 @@ export class LandingPage {
     console.log('ionViewDidLoad LandingPage');
   }
 
+  goTo(categorySelected) {
+    console.log(categorySelected);
+
+    categorySelected = categorySelected || -1;
+
+    this.navCtrl.push("CamaraPage", {
+       data: categorySelected
+    });
+  }
 }

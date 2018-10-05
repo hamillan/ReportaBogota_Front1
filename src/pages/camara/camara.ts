@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+
+import { ReportCategoryProvider } from '../../providers/report-category/report-category';
+import { ReportTypeProvider } from '../../providers/report-type/report-type';
+import 'rxjs/add/operator/filter';
 
 /**
  * Generated class for the CamaraPage page.
@@ -16,55 +22,70 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 })
 export class CamaraPage {
   public base64Image: string;
+  private category_id: number;
 
   categorias: Object[];
 
-  tiposReporte: Object[];
+  tiposReporte: ArrayBuffer;
 
+  categories: ArrayBuffer;
+  reportTypes: ArrayBuffer;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private camera: Camera,
+    private transfer: FileTransfer,
+    //private file: File,
+    private loadingCtrl: LoadingController,
+    public categoriesProvider: ReportCategoryProvider,
+    public typeProvider: ReportTypeProvider
+  ) {
+    this.category_id = navParams.get('data');
   }
 
   ionViewDidLoad() {
-    
-    this.categorias = [
+    this.categoriesProvider.getReportCategories().subscribe(
+      (data) =>
       {
-        "name":"Seguridad",
-          "tipos":[
-            {"name":"Robo de bicicleta"},
-            {"name":"Robo de celular"},
-            {"name":"Robo de carro"}
-          ]
+        this.categories = data;
+        console.log(data);
       },
-      {"name":"Movilidad",
-          "tipos":[
-            {"name":"Trancón"},
-            {"name":"SITP demorado"},
-            {"name":"Semáforo dañado"},
-          ]
+      (error) =>
+      {
+        console.error(error);
       }
-    ];
-    this.categoriaSeleccionada
+    );
 
-    /*
-    this.tipos = new String[this.categorias.length];
-    <ion-option>Malla vial</ion-option>
-          <ion-option>Señales de tránsito</ion-option>
-          <ion-option>Semaforización</ion-option>
-    this.tipos[0] = [
-      "Robo de bicicleta",
-      "Robo de celular",
-      "Robo de carro",
-    ];
-  
-    this.tipos["Movilidad"] = [
-      "Trancón",
-      "SITP demorado",
-      "Semáforo dañado",
-    ];
-    */
-
+    this.typeProvider.getReportTypes().subscribe(
+      (data) =>
+      {
+        this.reportTypes = data;
+        console.log(data);
+      },
+      (error) =>
+      {
+        console.error(error);
+      }
+    );
+    
+    console.log(this.category_id);
     console.log('ionViewDidLoad CamaraPage');
+  }
+
+  /*
+  ionViewDidLoad
+  ionViewWillEnter
+  ionViewDidEnter
+  ionViewWillLeave
+  ionViewDidLeave
+  ionViewWillUnload
+  ionViewCanEnter
+ */
+
+  ionViewDidEnter(){
+    this.onSelectChange(this.category_id);
+
   }
 
   takePicture(){
@@ -72,7 +93,9 @@ export class CamaraPage {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true,
+      saveToPhotoAlbum: true
     }
     
     this.camera.getPicture(options).then((imageData) => {
@@ -85,12 +108,48 @@ export class CamaraPage {
   }
 
   onSelectChange(selectedValue: any) {
-    this.tiposReporte = [];
-    this.categorias.forEach(categoria => {
-      if(categoria.name == selectedValue)
-      { 
-          this.tiposReporte = categoria.tipos;
-      }
+    console.log(this.reportTypes);
+
+    this.tiposReporte = this.reportTypes.filter((location) => {
+      return location.report_category_id == selectedValue && location.report_class_id == 6;
     });
   }
+
+  uploadImage(){
+    //Show loading
+    let loader = this.loadingCtrl.create({
+      content: "Uploading..."
+    });
+    loader.present();
+
+    //create file transfer object
+    const fileTransfer: FileTransferObject = this.transfer.create();
+
+    //random int
+    var random = Math.floor(Math.random() * 100);
+
+    //option transfer
+    let options: FileUploadOptions = {
+      fileKey: 'photo',
+      fileName: "myImage_" + random + ".jpg",
+      chunkedMode: false,
+      httpMethod: 'post',
+      mimeType: "image/jpeg",
+      headers: {}
+    }
+
+    //file transfer action
+    fileTransfer.upload(this.base64Image, 'http://192.168.1.30/api/upload/uploadFoto.php', options)
+      .then((data) => {
+        alert("Success");
+        loader.dismiss();
+      }, (err) => {
+        console.log(err);
+        alert("Error");
+        loader.dismiss();
+      });
+  }
+
+
+
 }
