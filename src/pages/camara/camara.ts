@@ -29,7 +29,7 @@ export class CamaraPage {
   tiposReporte: ArrayBuffer;
 
   categories: ArrayBuffer;
-  reportTypes: ArrayBuffer;
+  reportTypes: any;
 
   constructor(
     public navCtrl: NavController,
