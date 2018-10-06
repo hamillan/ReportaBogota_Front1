@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { File } from '@ionic-native/file';
+//import { File } from '@ionic-native/file';
 
 import { ReportCategoryProvider } from '../../providers/report-category/report-category';
 import { ReportTypeProvider } from '../../providers/report-type/report-type';
@@ -93,9 +93,9 @@ export class CamaraPage {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
+      mediaType: this.camera.MediaType.PICTURE/*,
       correctOrientation: true,
-      saveToPhotoAlbum: true
+      saveToPhotoAlbum: true*/
     }
     
     this.camera.getPicture(options).then((imageData) => {
@@ -115,7 +115,7 @@ export class CamaraPage {
     });
   }
 
-  uploadImage(){
+/*  uploadImage(){
     //Show loading
     let loader = this.loadingCtrl.create({
       content: "Uploading..."
@@ -149,7 +149,7 @@ export class CamaraPage {
         loader.dismiss();
       });
   }
-
+*/
 
 
 }
